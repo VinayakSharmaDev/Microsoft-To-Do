@@ -22,6 +22,10 @@ function Header() {
         setIsActive(false);
     };
 
+    const toggleFeature = (feature) => {
+        setActiveFeature(prev => prev === feature ? null : feature)
+    };
+
 
     return (
         <>
@@ -39,10 +43,10 @@ function Header() {
                 </div>
 
                 <div className=' flex'>
-                    <button onClick={() => setActiveFeature('settings')}><img src={Settings} alt="" className={`size-11 hover:bg-[#a94e10] ${ActiveFeature == 'settings' ? 'bg-white outline-1' : ''}`} /></button>
-                    <button onClick={() => setActiveFeature('whatsNew')}><img src={WhatsNew} alt="" className={`size-11 hover:bg-[#a94e10] ${ActiveFeature == 'whatsNew' ? 'bg-white outline-1' : ''}`} /></button>
-                    <button onClick={() => setActiveFeature('helpFeedback')}><img src={HelpFeedback} alt="" className={`size-11 hover:bg-[#a94e10] ${ActiveFeature == 'helpFeedback' ? 'bg-white outline-1' : ''}`} /></button>
-                    <button onClick={() => setActiveFeature('account')}><img src={Account} alt="" className={`size-11 hover:bg-[#a94e10] ${ActiveFeature == 'account' ? 'bg-white outline-1' : ''}`} /></button>
+                    <button onClick={() => toggleFeature('settings')}><img src={Settings} alt="" className={`size-11 hover:bg-[#a94e10] ${ActiveFeature == 'settings' ? 'bg-white outline-1' : ''}`} /></button>
+                    <button onClick={() => toggleFeature('whatsNew')}><img src={WhatsNew} alt="" className={`size-11 hover:bg-[#a94e10] ${ActiveFeature == 'whatsNew' ? 'bg-white outline-1' : ''}`} /></button>
+                    <button onClick={() => toggleFeature('helpFeedback')}><img src={HelpFeedback} alt="" className={`size-11 hover:bg-[#a94e10] ${ActiveFeature == 'helpFeedback' ? 'bg-white outline-1' : ''}`} /></button>
+                    <button onClick={() => toggleFeature('account')}><img src={Account} alt="" className={`size-11 hover:bg-[#a94e10] ${ActiveFeature == 'account' ? 'bg-white outline-1' : ''}`} /></button>
                 </div>
             </header>
         </>
