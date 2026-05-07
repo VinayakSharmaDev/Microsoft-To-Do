@@ -1,12 +1,16 @@
 @import "tailwindcss";
 
 
+* {
+    outline: 1px solid green;
+}
+
 body {
     font-family: "Roboto", sans-serif;
     font-optical-sizing: auto;
 }
 
-h1{
+h1 {
     font-family: "Playfair Display", serif;
     font-optical-sizing: auto;
     font-weight: 900;
@@ -18,4 +22,24 @@ h3,
 h4 {
     font-family: "Playfair Display", serif;
     font-optical-sizing: auto;
+}
+
+/* Chrome, Edge, Safari */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 2px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f5f2ed;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #c55a11;
+  border-radius: 999px;
+}
+
+/* Firefox */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #a79c92 #f5f2ed;
 }
