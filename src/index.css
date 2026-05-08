@@ -9,6 +9,10 @@ img{
   object-fit: cover;
 }
 
+button{
+  cursor: pointer;
+}
+
 body {
     font-family: "Roboto", sans-serif;
     font-optical-sizing: auto;

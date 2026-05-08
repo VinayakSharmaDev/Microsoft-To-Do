@@ -19,7 +19,7 @@ function Features() {
         <div className='flex'>
             <button onClick={() => toggleFeature('settings')} title='Settings' >
                 <img src={Settings} alt=""
-                    className={`size-9 hover:bg-[#a94e10] md'size-11 
+                    className={`size-9 hover:bg-[#a94e10] md:size-11 
                     ${ActiveFeature == 'settings' ? 'bg-white outline-1' : ''}`} /></button>
 
             <button onClick={() => toggleFeature('whatsNew')} title='Whats new' >

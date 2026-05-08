@@ -1,5 +1,5 @@
 import Header from './components/Header/Header';
-import Taskbar from './components/Taskbar';
+import Taskbar from './components/Taskbar/Taskbar';
 import './App.css'
 
 function App() {

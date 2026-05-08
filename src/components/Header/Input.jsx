@@ -21,15 +21,16 @@ function Input() {
 
                 <button onClick={Enable}
                     className='pl-1 bg-white rounded-sm cursor-pointer'>
-                        <img src={Search} alt="" className='size-7 w-9 shrink-0 ' /></button>
+                    <img src={Search} alt="" 
+                    className='size-7 w-9 shrink-0 lg:w-7   ' /></button>
 
                 <input onClick={Enable} type="text" placeholder="Search"
-                    className={`h-7 w-85 pl-2 bg-white outline-0 placeholder:text-sm 
+                    className={`h-7 w-85 pl-2 flex-1 bg-white outline-0 placeholder:text-sm 
                 ${isActive ? 'text-[#a1a1a1]' : 'text-white'}`} />
 
                 <button onClick={Disable}
-                    className={`h-7 pr-2 flex items-center bg-white rounded-e-sm cursor-pointer 
-                ${isActive ? 'text-[#a1a1a1]' : 'text-white'}`}>X</button>
+                    className={`h-7 pr-2  bg-white rounded-e-sm 
+                ${isActive ? 'text-[#a1a1a1]' : 'text-white pointer-events-none'}`}>X</button>
 
             </div>
         </div>
