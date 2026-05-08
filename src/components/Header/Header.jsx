@@ -7,13 +7,23 @@ function Header() {
 
     return (
         <>
-            <header className=" px-2 py-px flex items-center justify-between bg-[#c75b12] text-[#ffffff]">
-                <div className="ml-6 font-bold hover:underline ">
+            <header className=" px-2 py-px flex flex-col gap-1 bg-[#c75b12] text-[#ffffff] sm:flex-row sm:items-center sm:justify-between">
+                <div className="hidden font-bold hover:underline sm:ml-2 md:ml-6 sm:block ">
                     <h1><a href="">To Do: Basic Model</a></h1>
                 </div>
 
+                <div className='flex items-center justify-between sm:hidden'>
+                    <div className=" font-bold hover:underline sm:ml-2 md:ml-6 ">
+                        <h1><a href="">To Do: Basic Model</a></h1>
+                    </div>
+                    <Features />
+                </div>
+
                 <Input />
-                <Features />
+                
+                <div  className='hidden sm:block'>
+                    <Features/>
+                </div>
 
             </header>
         </>

@@ -9,7 +9,7 @@ function App() {
 
       <div className='flex flex-1 min-h-0'>
 
-        <aside className='w-1/5'>
+        <aside>
           <Taskbar />
           </aside>
 

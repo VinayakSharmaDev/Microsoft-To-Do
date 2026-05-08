@@ -12,7 +12,7 @@ export const systemList = [
     { name: 'Tasks', image: Tasks, type: 'system', id: 'tasks', tasks: [] }
 ];
 
-export const userList = [
-    { name: 'ss', image: Assigned, type: 'system', id: 'assigned', tasks: [] },
-    { name: 'hh', image: Tasks, type: 'system', id: 'tasks', tasks: [] }
-];
+// export const userList = [
+//     { name: 'ss', image: Assigned, type: 'system', id: 'assigned', tasks: [] },
+//     { name: 'hh', image: Tasks, type: 'system', id: 'tasks', tasks: [] }
+// ];

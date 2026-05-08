@@ -25,7 +25,7 @@ function Taskbar() {
     }
 
     const enterToList = (e) => {
-        if (e.key == 'Enter') {
+        if (e.key === 'Enter') {
             createList();
         }
     }
@@ -41,9 +41,9 @@ function Taskbar() {
 
 
     return (
-        <div className={`w-full flex flex-col h-full shadow-lg min-h-0 transition-transform duration-200 ${isCollapsed ? '-translate-x-79' : 'translate-0'}`}>
+        <div className={`w-65 pr-2 flex flex-col h-full shadow-lg min-h-0 transition-transform duration-200 ${isCollapsed ? 'hidden' : 'block'}`}>
 
-            <div><button onClick={HandleCollapse}><img src={Hamber} alt="" className='size-15 cursor-pointer' /></button></div>
+            <div><button onClick={HandleCollapse} title='Close sidebar'><img src={Hamber} alt="" className='size-15 cursor-pointer' /></button></div>
 
             <div className='flex-1 min-h-0 overflow-auto custom-scrollbar'>
 
@@ -51,28 +51,38 @@ function Taskbar() {
                     {systemList.map((taskbar) => {
 
                         return (
-                            <div key={taskbar.id} onClick={() => HandleActiveTab(taskbar.name)} className={`flex items-center text-sm font-bold text-[#555555] cursor-pointer ${isTabActive == taskbar.name ? 'bg-[#f3dfd0] text-[#c75b12]  hover:bg-[#f3dfd0]  ' : ' hover:bg-[#ffffff]'}`}>
-                                <div className={`w-0.75 h-10 bg-[#c75b12] rounded-e-md ${isTabActive == taskbar.name ? 'opacity-100' : 'opacity-0'}`}></div>
-                                <img src={taskbar.image} alt="" className='size-10 ml-2' />
+                            <div key={taskbar.id} onClick={() => HandleActiveTab(taskbar.name)}
+                                className={`flex items-center text-sm font-bold text-[#555555] cursor-pointer 
+                            ${isTabActive == taskbar.name ? 'bg-[#f3dfd0] text-[#c75b12]  hover:bg-[#f3dfd0] ' : 'hover:bg-[#ffffff]'}`}>
+
+                                <div className={`w-0.75 h-10 bg-[#c75b12] rounded-e-md 
+                                    ${isTabActive == taskbar.name ? 'opacity-100' : 'opacity-0'}`}></div>
+
+                                <img src={taskbar.image} alt="" className='size-10 flex items-center justify-center' />
                                 <h2 className='min-w-0 mx-2 flex-1 overflow-hidden text-ellipsis whitespace-nowrap'>{taskbar.name}</h2>
-                                <span className='mr-3'></span>
+                                <span className='mr-3'>{taskbar.tasks.length > 0 ? taskbar.tasks.length : ''}</span>
                             </div>
                         );
                     })
                     }
                 </div>
 
-                <div className='w-60 mx-auto my-2 border-b'></div>
+                <div className=' mx-auto my-2 border-b'></div>
 
                 <div>
                     {userList && userList.map((taskbar) => {
 
                         return (
-                            <div key={taskbar.id} onClick={() => HandleActiveTab(taskbar.name)} className={`flex items-center text-sm font-bold text-[#555555] cursor-pointer ${isTabActive == taskbar.name ? 'bg-[#f3dfd0] text-[#c75b12] hover:bg-[#f3dfd0]' : 'hover:bg-[#ffffff]'}`}>
-                                <div className={`w-0.75 h-10 bg-[#c75b12] rounded-e-md ${isTabActive == taskbar.name ? 'opacity-100' : 'opacity-0'}`}></div>
-                                <img src={taskbar.image} alt="" className='size-10 ml-2' />
+                            <div key={taskbar.id} onClick={() => HandleActiveTab(taskbar.name)}
+                                className={`flex items-center text-sm font-bold text-[#555555] cursor-pointer 
+                            ${isTabActive == taskbar.name ? 'bg-[#f3dfd0] text-[#c75b12] hover:bg-[#f3dfd0]' : 'hover:bg-[#ffffff]'}`}>
+
+                                <div className={`w-0.75 h-10 bg-[#c75b12] rounded-e-md 
+                                    ${isTabActive == taskbar.name ? 'opacity-100' : 'opacity-0'}`}></div>
+
+                                <img src={taskbar.image} alt="" className='size-10' />
                                 <h2 className='min-w-0 mx-2 flex-1 overflow-hidden text-ellipsis whitespace-nowrap'>{taskbar.name}</h2>
-                                <span className='mr-3'></span>
+                                <span className='mr-3'>{taskbar.tasks.length > 0 ? taskbar.tasks.length : ''}</span>
                             </div>
                         );
                     })
@@ -86,9 +96,14 @@ function Taskbar() {
 
             <div className='w-full  border-t'>
                 <div className=' my-3 flex items-center justify-around text-[#c75b12]'> {/* h-22 */}
-                    <span onClick={activateInput} className=' text-3xl font-extralight cursor-pointer'>+</span>
-                    <input onKeyDown={enterToList} ref={createListInput} type="text" placeholder='New list' className='px-1 text-sm outline-0' />
-                    <button onClick={createList} className='text-[12px] cursor-pointer hover:text-[#a94e10]'>Create</button>
+                    <span onClick={activateInput} className='flex items-center justify-center text-2xl font-extralight cursor-pointer'>+</span>
+                    <input
+                        onKeyDown={enterToList}
+                        ref={createListInput}
+                        type="text"
+                        placeholder='New list'
+                        className='px-1 text-sm outline-0' />
+                    <button onClick={createList} title='Create list' className='text-[12px] cursor-pointer hover:text-[#a94e10]'>Create</button>
                 </div>
             </div>
 

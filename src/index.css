@@ -5,6 +5,10 @@
     outline: 1px solid green;
 }
 
+img{
+  object-fit: cover;
+}
+
 body {
     font-family: "Roboto", sans-serif;
     font-optical-sizing: auto;

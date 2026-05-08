@@ -16,11 +16,26 @@ function Features() {
     };
 
     return (
-        <div className=' flex'>
-            <button onClick={() => toggleFeature('settings')}><img src={Settings} alt="" className={`size-11 hover:bg-[#a94e10] ${ActiveFeature == 'settings' ? 'bg-white outline-1' : ''}`} /></button>
-            <button onClick={() => toggleFeature('whatsNew')}><img src={WhatsNew} alt="" className={`size-11 hover:bg-[#a94e10] ${ActiveFeature == 'whatsNew' ? 'bg-white outline-1' : ''}`} /></button>
-            <button onClick={() => toggleFeature('helpFeedback')}><img src={HelpFeedback} alt="" className={`size-11 hover:bg-[#a94e10] ${ActiveFeature == 'helpFeedback' ? 'bg-white outline-1' : ''}`} /></button>
-            <button onClick={() => toggleFeature('account')}><img src={Account} alt="" className={`size-11 hover:bg-[#a94e10] ${ActiveFeature == 'account' ? 'bg-white outline-1' : ''}`} /></button>
+        <div className='flex'>
+            <button onClick={() => toggleFeature('settings')} title='Settings' >
+                <img src={Settings} alt=""
+                    className={`size-9 hover:bg-[#a94e10] md'size-11 
+                    ${ActiveFeature == 'settings' ? 'bg-white outline-1' : ''}`} /></button>
+
+            <button onClick={() => toggleFeature('whatsNew')} title='Whats new' >
+                <img src={WhatsNew} alt=""
+                    className={`size-9 hover:bg-[#a94e10] md:size-11
+                ${ActiveFeature == 'whatsNew' ? 'bg-white outline-1' : ''}`} /></button>
+
+            <button onClick={() => toggleFeature('helpFeedback')} title='Help feedback' >
+                <img src={HelpFeedback} alt=""
+                    className={`size-9 hover:bg-[#a94e10] md:size-11
+                    ${ActiveFeature == 'helpFeedback' ? 'bg-white outline-1' : ''}`} /></button>
+
+            <button onClick={() => toggleFeature('account')} title='Account'>
+                <img src={Account} alt=""
+                    className={`size-9 hover:bg-[#a94e10] md:size-11
+                    ${ActiveFeature == 'account' ? 'bg-white outline-1' : ''}`} /></button>
         </div>
     );
 };
