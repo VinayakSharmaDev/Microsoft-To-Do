@@ -2,34 +2,34 @@
 
 
 * {
-    outline: 1px solid green;
+  /* outline: 1px solid green; */
 }
 
-img{
+img {
   object-fit: cover;
 }
 
-button{
+button {
   cursor: pointer;
 }
 
 body {
-    font-family: "Roboto", sans-serif;
-    font-optical-sizing: auto;
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
 }
 
 h1 {
-    font-family: "Playfair Display", serif;
-    font-optical-sizing: auto;
-    font-weight: 900;
-    font-style: italic;
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: italic;
 }
 
 h2,
 h3,
 h4 {
-    font-family: "Playfair Display", serif;
-    font-optical-sizing: auto;
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
 }
 
 /* Chrome, Edge, Safari */
@@ -50,4 +50,21 @@ h4 {
 .custom-scrollbar {
   scrollbar-width: thin;
   scrollbar-color: #a79c92 #f5f2ed;
+}
+
+
+@keyframes fade{
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.feature-fade {
+  animation: fade 0.2s ease-in-out ; 
 }

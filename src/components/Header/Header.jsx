@@ -2,13 +2,13 @@ import { Link } from 'react-router';
 import Input from './Input';
 import Features from './Features';
 
-function Header() {
-    //
+function Header({ activeFeature, toggleFeature }) {
 
 
     return (
         <>
-            <header className=" px-2 py-px flex flex-col gap-1 bg-[#c75b12] text-[#ffffff] sm:flex-row sm:items-center sm:justify-between">
+            <header className=" px-2 py-px flex flex-col gap-1 bg-[#c75b12] text-[#ffffff] 
+            sm:flex-row sm:items-center sm:justify-between">
                 <div className="hidden font-bold hover:underline sm:ml-2 md:ml-6 sm:block ">
                     <h1><Link to="/" >To Do: Basic Model</Link></h1>
                 </div>
@@ -17,13 +17,19 @@ function Header() {
                     <div className=" font-bold hover:underline sm:ml-2 md:ml-6 ">
                         <h1><Link to="/" >To Do: Basic Model</Link></h1>
                     </div>
-                    <Features />
+
+                    <Features
+                        activeFeature={activeFeature}
+                        toggleFeature={toggleFeature} />
+
                 </div>
 
                 <Input />
 
                 <div className='hidden sm:block'>
-                    <Features />
+                    <Features
+                        activeFeature={activeFeature}
+                        toggleFeature={toggleFeature} />
                 </div>
 
             </header>
