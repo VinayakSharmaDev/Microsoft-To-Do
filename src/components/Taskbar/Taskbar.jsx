@@ -46,7 +46,7 @@ function Taskbar() {
                     })}
                 </div>
 
-                <div className=' mx-auto my-2 border-b'></div>
+                <div className='mx-auto my-2 border-b'></div>
 
                 <div>
                     {userList && userList.map((taskbar) => {

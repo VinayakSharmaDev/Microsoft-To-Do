@@ -1,19 +1,18 @@
-import Settings from "./Settings";
+import Settings from "./settings/Settings";
 import WhatsNew from './WhatsNew';
 import HelpFeedback from './HelpFeedback';
 import Account from './Account';
 
-function FeaturesBar({ activeFeature }) {
+function FeaturesBar({ activeFeature, setActiveFeature }) {
 
     return (
-        <> 
-        <Settings activeFeature={activeFeature} />
-         <WhatsNew activeFeature={activeFeature} />
-          <HelpFeedback activeFeature={activeFeature} />
-          <Account activeFeature={activeFeature} />
-        </>
+        <div>
+            <Settings activeFeature={activeFeature} setActiveFeature={setActiveFeature} />
+            <WhatsNew activeFeature={activeFeature} setActiveFeature={setActiveFeature} />
+            <HelpFeedback activeFeature={activeFeature} setActiveFeature={setActiveFeature} />
+            <Account activeFeature={activeFeature} setActiveFeature={setActiveFeature} />
+        </div>
     );
 }
 
 export default FeaturesBar;
-

@@ -32,7 +32,7 @@ function App() {
           <div className='flex-1'></div>
 
           <div>
-            <FeaturesBar activeFeature={activeFeature} />
+            <FeaturesBar activeFeature={activeFeature} setActiveFeature={setActiveFeature} />
           </div>
         </main>
 
