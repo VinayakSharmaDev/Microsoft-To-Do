@@ -9,13 +9,12 @@ function Account({ activeFeature, setActiveFeature }) {
         <div
             className={`
                 h-45 w-1/4 p-2 fixed top-17.5 right-0 shadow-lg
-                sm:top-9.5 md:top-11.5
+                sm:top-9.5 md:top-11.5 bg-[#f5f2ed]
 
                 transform transition-transform duration-300 ease-in-out
 
-                ${activeFeature === 'account'
-                    ? 'opacity-100'
-                    : 'opacity-0'}
+                ${activeFeature === 'account' ?
+                    'translate-x-0 pointer-events-auto' : 'translate-x-full pointer-events-none'}
             `}
         >
             <div className="w-full flex justify-end">

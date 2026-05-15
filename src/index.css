@@ -66,3 +66,25 @@ h2{
 .feature-fade {
   animation: fade 0.2s ease-in-out ; 
 }
+
+.view-btn {
+  position: relative;
+}
+
+.view-btn::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+
+  width: 0%;
+  height: 2px;
+  background: #c75b12;
+
+  transform: translateX(-50%);
+  transition: width 0.3s ease;
+}
+
+.view-btn.active::after {
+  width: 100%;
+}

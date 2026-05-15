@@ -7,6 +7,7 @@ import Taskbar from './components/Taskbar/Taskbar';
 // import FeaturesBar from './components/FeaturesBar/FeaturesBar.jsx';
 import FeaturesBar from './components/FeaturesBar/FeaturesBar';
 import './App.css'
+import TasksHeader from './components/listpanel/ListHeader';
 
 function App() {
 
@@ -15,6 +16,14 @@ function App() {
   const toggleFeature = (feature) => {
     setActiveFeature(prev => prev === feature ? null : feature)
   };
+
+  //Collapse/Expand Taskbar menu
+  const [isCollapsed, setIsCollapsed] = useState(false);
+
+  const HandleCollapse = () => {
+    isCollapsed == true ? setIsCollapsed(false) : setIsCollapsed(true);
+  };
+
 
   return (
     <div className='h-screen flex flex-col text-[#a1a1a1] bg-[#f5f2ed]'>
@@ -25,11 +34,13 @@ function App() {
       <div className='flex flex-1 min-h-0'>
 
         <aside>
-          <Taskbar />
+          <Taskbar isCollapsed={isCollapsed} HandleCollapse={HandleCollapse} />
         </aside>
 
         <main className='flex flex-1'>
-          <div className='flex-1'></div>
+          <div className='flex-1'>
+            <TasksHeader isCollapsed={isCollapsed} HandleCollapse={HandleCollapse} />
+          </div>
 
           <div>
             <FeaturesBar activeFeature={activeFeature} setActiveFeature={setActiveFeature} />

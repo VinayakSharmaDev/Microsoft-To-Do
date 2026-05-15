@@ -10,15 +10,11 @@ import SystemList from './SystemList';
 import Hamber from '../../assets/img/user-task-icon.png';
 import CreateList from './CreateList';
 
-function Taskbar() {
-
-    const [isCollapsed, setIsCollapsed] = useState(false);
+function Taskbar({isCollapsed, HandleCollapse}) {
+    
     const [isTabActive, setIsTabActive] = useState(null);
     const [userList, setUserList] = useState([]);
 
-    const HandleCollapse = () => {
-        isCollapsed == true ? setIsCollapsed(false) : setIsCollapsed(true);
-    };
 
     const HandleActiveTab = (tab) => {
         setIsTabActive(prev => prev == tab ? null : tab);

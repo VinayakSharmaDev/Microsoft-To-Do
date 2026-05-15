@@ -6,7 +6,7 @@ import Account from './Account';
 function FeaturesBar({ activeFeature, setActiveFeature }) {
 
     return (
-        <div>
+        <div >
             <Settings activeFeature={activeFeature} setActiveFeature={setActiveFeature} />
             <WhatsNew activeFeature={activeFeature} setActiveFeature={setActiveFeature} />
             <HelpFeedback activeFeature={activeFeature} setActiveFeature={setActiveFeature} />
