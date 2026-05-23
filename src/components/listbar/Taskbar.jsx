@@ -1,8 +1,5 @@
-//Packages
-import { useState } from 'react';
-
 //Files $ Components
-import { systemList } from '../../data/tasks';
+import systemList from '../../data/tasks';
 import Userlist from './UserList';
 import SystemList from './SystemList';
 
@@ -10,14 +7,13 @@ import SystemList from './SystemList';
 import Hamber from '../../assets/img/user-task-icon.png';
 import CreateList from './CreateList';
 
-function Taskbar({isCollapsed, HandleCollapse}) {
-    
-    const [isTabActive, setIsTabActive] = useState(null);
-    const [userList, setUserList] = useState([]);
+function Taskbar(
+    { isCollapsed, HandleCollapse, isTabActive, setIsTabActive, userList, setUserList }
+) {
 
 
     const HandleActiveTab = (tab) => {
-        setIsTabActive(prev => prev == tab ? null : tab);
+        setIsTabActive(prev => prev == tab ? prev : tab);
     }
 
 
@@ -31,11 +27,11 @@ function Taskbar({isCollapsed, HandleCollapse}) {
             <div className='flex-1 min-h-0 overflow-auto custom-scrollbar'>
 
                 <div>
-                    {systemList.map((taskbar) => {
+                    {systemList.map((tasklist) => {
                         return (
                             <SystemList
-                                key={taskbar.id}
-                                taskbar={taskbar}
+                                key={tasklist.id}
+                                tasklist={tasklist}
                                 HandleActiveTab={HandleActiveTab}
                                 isTabActive={isTabActive} />
                         )
@@ -45,11 +41,11 @@ function Taskbar({isCollapsed, HandleCollapse}) {
                 <div className='mx-auto my-2 border-b'></div>
 
                 <div>
-                    {userList && userList.map((taskbar) => {
+                    {userList && userList.map((tasklist) => {
                         return (
                             <Userlist
-                                key={taskbar.id}
-                                taskbar={taskbar}
+                                key={tasklist.id}
+                                tasklist={tasklist}
                                 HandleActiveTab={HandleActiveTab}
                                 isTabActive={isTabActive} />
                         );

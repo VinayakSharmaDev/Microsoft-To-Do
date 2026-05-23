@@ -1,13 +1,13 @@
 //Packages
 import { useState } from 'react';
 
-//Components
-import Header from './components/Header/Header';
-import Taskbar from './components/Taskbar/Taskbar';
+//Components & file
+import Header from './components/header/Header';
+import Taskbar from './components/listbar/Taskbar';
 // import FeaturesBar from './components/FeaturesBar/FeaturesBar.jsx';
 import FeaturesBar from './components/FeaturesBar/FeaturesBar';
-import './App.css'
-import TasksHeader from './components/listpanel/ListHeader';
+import systemList from './data/tasks';
+import ListPanel from './components/listpanel/ListPanel';
 
 function App() {
 
@@ -17,12 +17,23 @@ function App() {
     setActiveFeature(prev => prev === feature ? null : feature)
   };
 
-  //Collapse/Expand Taskbar menu
+  //To switch between listTabs - Taskbar
+  const [isTabActive, setIsTabActive] = useState('My Day');
+
+  //Collapse/Expand Taskbar menu - Taskbar & ListHeaderLeft
   const [isCollapsed, setIsCollapsed] = useState(false);
 
+  //Store user created lists - Taskbar & ListHeaderLeft
+  const [userList, setUserList] = useState([]);
+
+  //Store both systemlist & userlist
+  const allLists = [...systemList, ...userList];
+
+  //Toggle Taskbar
   const HandleCollapse = () => {
     isCollapsed == true ? setIsCollapsed(false) : setIsCollapsed(true);
   };
+
 
 
   return (
@@ -34,12 +45,23 @@ function App() {
       <div className='flex flex-1 min-h-0'>
 
         <aside>
-          <Taskbar isCollapsed={isCollapsed} HandleCollapse={HandleCollapse} />
+          <Taskbar
+            isCollapsed={isCollapsed}
+            HandleCollapse={HandleCollapse}
+            isTabActive={isTabActive}
+            setIsTabActive={setIsTabActive}
+            userList={userList}
+            setUserList={setUserList} />
         </aside>
 
         <main className='flex flex-1'>
           <div className='flex-1'>
-            <TasksHeader isCollapsed={isCollapsed} HandleCollapse={HandleCollapse} />
+            <ListPanel isCollapsed={isCollapsed}
+              HandleCollapse={HandleCollapse}
+              isTabActive={isTabActive}
+              allLists={allLists}
+              setUserList={setUserList}
+              setIsTabActive={setIsTabActive} />
           </div>
 
           <div>
