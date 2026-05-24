@@ -45,8 +45,6 @@ function TasksHeaderLeft(
         document.title = `To Do/${isTabActive}`;
     }, [isTabActive])
 
-    console.log(list);
-
 
     return (
         <ul  className='flex items-center gap-4'>

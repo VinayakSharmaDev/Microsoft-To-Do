@@ -6,7 +6,7 @@ import Header from './components/header/Header';
 import Taskbar from './components/listbar/Taskbar';
 // import FeaturesBar from './components/FeaturesBar/FeaturesBar.jsx';
 import FeaturesBar from './components/FeaturesBar/FeaturesBar';
-import systemList from './data/tasks';
+import list from './data/tasks';
 import ListPanel from './components/listpanel/ListPanel';
 
 function App() {
@@ -25,6 +25,9 @@ function App() {
 
   //Store user created lists - Taskbar & ListHeaderLeft
   const [userList, setUserList] = useState([]);
+
+  // Store System list data to make it changeable
+  const [systemList, setSystemList] = useState(list);
 
   //Store both systemlist & userlist
   const allLists = [...systemList, ...userList];
@@ -51,7 +54,8 @@ function App() {
             isTabActive={isTabActive}
             setIsTabActive={setIsTabActive}
             userList={userList}
-            setUserList={setUserList} />
+            setUserList={setUserList}
+            systemList={systemList} />
         </aside>
 
         <main className='flex flex-1'>
@@ -60,6 +64,8 @@ function App() {
               HandleCollapse={HandleCollapse}
               isTabActive={isTabActive}
               allLists={allLists}
+              setSystemList={setSystemList}
+              systemList={systemList}
               setUserList={setUserList}
               setIsTabActive={setIsTabActive} />
           </div>

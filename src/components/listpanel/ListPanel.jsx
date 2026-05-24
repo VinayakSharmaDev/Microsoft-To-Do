@@ -8,7 +8,9 @@ function ListPanel(
         isTabActive,
         allLists,
         setUserList,
-        setIsTabActive }) {
+        setIsTabActive,
+        systemList,
+        setSystemList }) {
     return (
 
         allLists.map((list) => {
@@ -29,7 +31,8 @@ function ListPanel(
                     <TaskPanel
                         isCollapsed={isCollapsed}
                         list={list}
-                        allLists={allLists} />
+                        setSystemList={setSystemList}
+                        systemList={systemList} />
                 </div>
             );
         })

@@ -1,5 +1,4 @@
 //Files $ Components
-import systemList from '../../data/tasks';
 import Userlist from './UserList';
 import SystemList from './SystemList';
 
@@ -8,7 +7,13 @@ import Hamber from '../../assets/img/user-task-icon.png';
 import CreateList from './CreateList';
 
 function Taskbar(
-    { isCollapsed, HandleCollapse, isTabActive, setIsTabActive, userList, setUserList }
+    { isCollapsed,
+        HandleCollapse,
+        isTabActive,
+        setIsTabActive,
+        userList,
+        setUserList,
+        systemList   }
 ) {
 
 

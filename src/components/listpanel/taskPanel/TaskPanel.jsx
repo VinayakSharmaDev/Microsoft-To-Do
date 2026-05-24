@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Task from './Task';
 
-function TaskPanel({ isCollapsed, list, allLists }) {
+function TaskPanel({ isCollapsed, list, systemList, setSystemList }) {
 
     const [hideCompleted, setHideComleted] = useState(false);
 
@@ -28,7 +28,11 @@ function TaskPanel({ isCollapsed, list, allLists }) {
                     {list.tasks.map((task) => {
                         return (
                             !task.completed &&
-                            < Task key={task.id} task={task} allLists={allLists} />
+                            < Task key={task.id}
+                                task={task}
+                                listId={list.id}
+                                setSystemList={setSystemList}
+                                systemList={systemList} />
 
                         );
                     })}
@@ -49,7 +53,10 @@ function TaskPanel({ isCollapsed, list, allLists }) {
                         {list.tasks.map((task) => {
                             return (
                                 task.completed &&
-                                < Task key={task.id} task={task} />
+                                < Task key={task.id}
+                                    task={task}
+                                    listId={list.id}
+                                    setSystemList={setSystemList} />
 
                             );
                         })}

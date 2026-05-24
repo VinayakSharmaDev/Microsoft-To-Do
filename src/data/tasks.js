@@ -4,7 +4,7 @@ import Planned from '../assets/img/planned-icon.png';
 import Assigned from '../assets/img/assigned-icon.png';
 import Tasks from '../assets/img/tasks-icon.png';
 
-const systemList = [
+const list = [
     { name: 'My Day', image: MyDay, type: 'system', id: 'my-day', tasks: [] },
     { name: 'Important', image: Important, type: 'system', id: 'important', tasks: [] },
     { name: 'Planned', image: Planned, type: 'system', id: 'planned', tasks: [] },
@@ -25,7 +25,7 @@ const systemList = [
     }
 ];
 
-export default systemList;
+export default list;
 
 // export const userList = [
 //     { name: 'ss', image: Assigned, type: 'system', id: 'assigned', tasks: [] },
