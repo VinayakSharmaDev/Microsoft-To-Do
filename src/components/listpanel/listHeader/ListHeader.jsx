@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import TasksHeaderLeft from './ListHeaderLeft';
 // import TasksHeaderRight from './ListHeaderRight';
 
@@ -10,10 +9,9 @@ function ListHeader(
         allLists,
         setUserList,
         setIsTabActive,
-        list }) {
-
-
-    const [viewType, setViewType] = useState("grid");
+        list,
+        viewType,
+        setViewType }) {
 
 
     return (
@@ -28,7 +26,8 @@ function ListHeader(
                 allLists={allLists}
                 setUserList={setUserList}
                 setIsTabActive={setIsTabActive}
-                list={list} />
+                list={list}
+                 />
 
 
 

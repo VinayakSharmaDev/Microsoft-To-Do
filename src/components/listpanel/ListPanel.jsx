@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import ListHeader from './listHeader/ListHeader'
 import TaskHeader from './taskHeader/TaskHeader';
 import TaskPanel from './taskPanel/TaskPanel';
@@ -9,8 +11,10 @@ function ListPanel(
         allLists,
         setUserList,
         setIsTabActive,
-        systemList,
         setSystemList }) {
+
+    const [viewType, setViewType] = useState("grid");
+
     return (
 
         allLists.map((list) => {
@@ -24,7 +28,10 @@ function ListPanel(
                         allLists={allLists}
                         setUserList={setUserList}
                         setIsTabActive={setIsTabActive}
-                        list={list} />
+                        list={list}
+                        viewType={viewType}
+                        setViewType={setViewType} />
+
 
                     <TaskHeader isCollapsed={isCollapsed} />
 
@@ -32,7 +39,7 @@ function ListPanel(
                         isCollapsed={isCollapsed}
                         list={list}
                         setSystemList={setSystemList}
-                        systemList={systemList} />
+                        viewType={viewType} />
                 </div>
             );
         })
