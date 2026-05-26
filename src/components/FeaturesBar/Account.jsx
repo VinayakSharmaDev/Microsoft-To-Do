@@ -8,7 +8,7 @@ function Account({ activeFeature, setActiveFeature }) {
     return (
         <div
             className={`
-                h-45 w-1/4 p-2 fixed top-17.5 right-0 shadow-lg
+                h-45 w-1/4 p-2 fixed top-17.5 right-0 shadow-md
                 sm:top-9.5 md:top-11.5 bg-[#f5f2ed]
 
                 transform transition-transform duration-300 ease-in-out

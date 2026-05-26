@@ -38,9 +38,8 @@ function App() {
   };
 
 
-
   return (
-    <div className='h-screen flex flex-col text-[#a1a1a1] bg-[#f5f2ed]'>
+    <div className='h-screen overflow-hidden flex flex-col text-[#a1a1a1] bg-[#f5f2ed]'>
       <Header
         activeFeature={activeFeature}
         toggleFeature={toggleFeature} />

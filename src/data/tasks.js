@@ -25,6 +25,15 @@ const list = [
     }
 ];
 
+let count;
+list.forEach(tasklist =>
+    tasklist.tasks.forEach(task => {
+        count = task.completed;
+        console.log(count)
+    }
+    )
+)
+
 export default list;
 
 // export const userList = [

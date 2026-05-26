@@ -15,7 +15,7 @@ function Input() {
     };
 
     return (
-        <div >
+        <div className='hidden' >
             <div title='Search Task '
                 className="w-75 mx-auto flex items-center bg-white rounded-sm hover:scale-x-101 hover:scale-y-102 transition-transform duration-150 ease-in sm:w-75 md:w-100 ">
 
