@@ -43,10 +43,10 @@ function CreateList({ setUserList }) {
                 ref={createListInput}
                 type="text"
                 placeholder='New list'
-                className='px-1 text-sm outline-0' />
+                className='px-1 flex-1 sm:flex-0 text-sm outline-0' />
 
             <button onClick={createList} title='Create list'
-                className='text-[12px] cursor-pointer hover:text-[#a94e10]'>Create</button>
+                className='px-1 mr-1 sm:p-0  sm:m-0 text-sm sm:text-[12px] cursor-pointer hover:text-[#a94e10]'>Create</button>
         </div>
     );
 };

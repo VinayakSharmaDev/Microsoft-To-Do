@@ -17,12 +17,12 @@ function TaskPanel({
 
     return (
         <div className={`custom-scrollbar px-4 pb-2 m-4 rounded-sm max-h-112 overflow-auto
-            ${isCollapsed ? 'mx-15' : ''} ${viewType === 'grid' ? 'bg-white shadow-sm' : ''}`}>
+            ${isCollapsed ? 'sm:mx-5' : ''} ${viewType === 'grid' ? 'bg-white shadow-sm' : ''}`}>
 
-            <div className='sticky top-0 z-10 w-full'>
-                <ul className={`py-2  rounded-sm flex flex-1 items-center gap-4 bg-white text-sm 
+            <div className='sticky  top-0 z-10 w-full'>
+                <ul className={`py-2  rounded-sm flex flex-1 items-center gap-4 bg-white text-sm
                     ${viewType === 'grid' ? '' : 'p-4'}`}>
-                    <li className='w-5.5'></li>
+                    <li className='sm:w-4.5 '></li>
                     <li className="flex-1">Title</li>
                     <li>Importance</li>
                     <li>Delete</li>

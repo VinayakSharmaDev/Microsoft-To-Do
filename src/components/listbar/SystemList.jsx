@@ -1,5 +1,5 @@
 function SystemList({ tasklist, HandleActiveTab, isTabActive }) {
-    console.log(tasklist.tasks.completed);
+    console.log(tasklist.tasks.completed)
     return (
 
         <div onClick={() => HandleActiveTab(tasklist.name)}

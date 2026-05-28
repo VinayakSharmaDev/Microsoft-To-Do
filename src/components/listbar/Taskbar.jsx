@@ -23,7 +23,7 @@ function Taskbar(
 
 
     return (
-        <div className={`w-65 pr-2 flex flex-col h-full shadow-lg min-h-0 transition-transform duration-200 
+        <div className={`w-dvw  pr-2 flex flex-col h-full shadow-lg min-h-0 sm:w-60 md:w-70
         ${isCollapsed ? 'hidden' : 'block'}`}>
 
             <div><button onClick={HandleCollapse} title='Close sidebar'>

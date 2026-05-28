@@ -27,38 +27,76 @@ function Task({ task, listId, setSystemList }) {
     };
 
     return (
-        <li className="py-2 flex gap-2 items-center text-md text-[#555555] border-t border-gray-200">
+        <li className="py-2 flex flex-col  text-md text-[#555555] border-t border-gray-200">
 
-            <button className='flex items-center outline-gray-400 hover:outline-1'>
-                <img
-                    onMouseEnter={() => setTickHovering(true)}
-                    onMouseLeave={() => setTickHovering(false)}
-                    src={TickHovering || task.completed ? CircleTick : Circle}
-                    alt=""
-                    className='size-7'
-                />
-            </button>
+            <div className="py-2 flex gap-2 items-center text-md text-[#555555]">
+                <button className='hidden sm:flex items-center outline-gray-400 hover:outline-1'>
+                    <img
+                        onMouseEnter={() => setTickHovering(true)}
+                        onMouseLeave={() => setTickHovering(false)}
+                        src={TickHovering || task.completed ? CircleTick : Circle}
+                        alt=""
+                        className='size-7'
+                    />
+                </button>
 
-            <h3 className='flex-1'>{task.name}</h3>
+                <h3 className='pl-2 sm:pl-0 flex-1'>{task.name}</h3>
 
-            <div
-                onMouseEnter={() => setStarHovering(true)}
-                onMouseLeave={() => setStarHovering(false)}
-                className='w-18 outline-gray-400 hover:outline-1'
-            >
-                <img
-                    src={StarHovering ? StarFilled : Star}
-                    alt=""
-                    className='size-7 mx-auto'
-                />
+                <button
+                    onMouseEnter={() => setStarHovering(true)}
+                    onMouseLeave={() => setStarHovering(false)}
+                    className='w-18 outline-gray-400 hover:outline-1 hidden sm:block'
+                >
+                    <img
+                        src={StarHovering ? StarFilled : Star}
+                        alt=""
+                        className='size-7 mx-auto bg'
+                    />
+                </button>
+
+                <button
+                    onClick={() => DeleteTask(task.id)}
+                    className='px-2 hover:outline-1 hidden sm:block'
+                >
+                    <img src={Delete} alt="" className='size-7' />
+                </button>
             </div>
 
-            <button
-                onClick={() => DeleteTask(task.id)}
-                className='px-2 hover:outline-1'
-            >
-                <img src={Delete} alt="" className='size-7' />
-            </button>
+
+
+            <div className='flex items-center'>
+                <button className='flex-1 sm:hidden items-center outline-gray-400 hover:outline-1'>
+                    <img
+                        onMouseEnter={() => setTickHovering(true)}
+                        onMouseLeave={() => setTickHovering(false)}
+                        src={TickHovering || task.completed ? CircleTick : Circle}
+                        alt=""
+                        className='size-7 mx-3.5'
+                    />
+                </button>
+
+                <button
+                    onMouseEnter={() => setStarHovering(true)}
+                    onMouseLeave={() => setStarHovering(false)}
+                    className='w-18 mr-2.5 outline-gray-400 hover:outline-1 sm:hidden'
+                >
+                    <img
+                        src={StarHovering ? StarFilled : Star}
+                        alt=""
+                        className='size-7 mx-auto'
+                    />
+                </button>
+
+                <button
+                    onClick={() => DeleteTask(task.id)}
+                    className='px-2 hover:outline-1 sm:hidden'
+                >
+                    <img src={Delete} alt="" className='size-7' />
+                </button>
+            </div>
+
+
+
 
         </li>
     );
