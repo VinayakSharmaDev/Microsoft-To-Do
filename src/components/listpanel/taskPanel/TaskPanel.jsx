@@ -6,13 +6,43 @@ function TaskPanel({
     isCollapsed,
     list,
     setSystemList,
-    viewType }) {
+    viewType,
+    allLists }) {
 
     const [hideCompleted, setHideComleted] = useState(false);
 
     const HandleCompleted = () => {
         setHideComleted(prev => !prev);
     }
+
+    const DeleteTask = (taskId, listId) => {
+
+        setSystemList(prev =>
+            prev.map(list =>
+                list.id === listId
+                    ? {
+                        ...list,
+                        tasks: list.tasks.filter(task => task.id !== taskId)
+
+                    }
+                    : list
+            )
+        );
+    };
+
+
+    const ToggleImportant = (taskId) => {
+        setSystemList(prev =>
+            prev.map(list => ({
+                ...list,
+                tasks: list.tasks.map(task =>
+                    task.id === taskId ?
+                        { ...task, important: !task.important }
+                        : task
+                )
+            }))
+        );
+    };
 
 
     return (
@@ -38,15 +68,20 @@ function TaskPanel({
                                     < TaskInGrid key={task.id}
                                         task={task}
                                         listId={list.id}
+                                        DeleteTask={DeleteTask}
+                                        ToggleImportant={ToggleImportant}
                                         setSystemList={setSystemList} />
                                     :
                                     <TaskInList key={task.id}
                                         task={task}
                                         listId={list.id}
+                                        DeleteTask={DeleteTask}
+                                        ToggleImportant={ToggleImportant}
                                         setSystemList={setSystemList} />
                             );
                         })}
                 </ul>
+
 
                 <div className=''>
 
@@ -67,11 +102,16 @@ function TaskPanel({
                                         < TaskInGrid key={task.id}
                                             task={task}
                                             listId={list.id}
+                                            DeleteTask={DeleteTask}
+                                            ToggleImportant={ToggleImportant}
+                                            allLists={allLists}
                                             setSystemList={setSystemList} />
                                         :
                                         <TaskInList key={task.id}
                                             task={task}
                                             listId={list.id}
+                                            DeleteTask={DeleteTask}
+                                            ToggleImportant={ToggleImportant}
                                             setSystemList={setSystemList} />
 
                                 );

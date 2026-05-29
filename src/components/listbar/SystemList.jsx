@@ -1,5 +1,7 @@
 function SystemList({ tasklist, HandleActiveTab, isTabActive }) {
-    console.log(tasklist.tasks.completed)
+
+    const count = tasklist.tasks.filter(task => !task.completed).length;
+
     return (
 
         <div onClick={() => HandleActiveTab(tasklist.name)}
@@ -14,7 +16,7 @@ function SystemList({ tasklist, HandleActiveTab, isTabActive }) {
                 className='size-10 flex items-center justify-center' />
 
             <h2 className='min-w-0 mx-2 flex-1 overflow-hidden text-ellipsis whitespace-nowrap'>{tasklist.name}</h2>
-            <span className='mr-3'>{(tasklist.tasks.length > 0 ? tasklist.tasks.length : '')}</span>
+            <span className='mr-3'>{(count === 0 ? ' ' : count)}</span>
         </div>
     );
 

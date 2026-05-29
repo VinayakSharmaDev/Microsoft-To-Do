@@ -3,7 +3,7 @@ import Userlist from './UserList';
 import SystemList from './SystemList';
 
 //Images
-import Hamber from '../../assets/img/user-task-icon.png';
+import Hamber from '../../assets/img/menu.png';
 import CreateList from './CreateList';
 
 function Taskbar(
@@ -27,7 +27,7 @@ function Taskbar(
         ${isCollapsed ? 'hidden' : 'block'}`}>
 
             <div><button onClick={HandleCollapse} title='Close sidebar'>
-                <img src={Hamber} alt="" className='size-15 cursor-pointer' /></button></div>
+                <img src={Hamber} alt="" className='size-12 cursor-pointer' /></button></div>
 
             <div className='flex-1 min-h-0 overflow-auto custom-scrollbar'>
 

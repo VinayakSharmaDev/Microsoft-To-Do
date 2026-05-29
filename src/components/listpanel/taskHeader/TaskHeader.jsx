@@ -6,7 +6,7 @@ function TaskHeader({ isCollapsed }) {
             ${isCollapsed ? 'sm:mx-5' : ''}`}>
             <img src={Circle} alt="" className='size-7 items-center justify-center hidden sm:flex' />
             <input type="text" placeholder="Add a task" className="flex-1 px-2 outline-none" />
-            <button className="p-1 text-sm border hover:bg-[#f5f5f5] hover:text-[#c75b12] ">Add</button>
+            <button className="w-30 mx-auto3 p-1 text-sm border hover:bg-[#f5f5f5] hover:text-[#c75b12]">Add</button>
         </div>
     );
 };

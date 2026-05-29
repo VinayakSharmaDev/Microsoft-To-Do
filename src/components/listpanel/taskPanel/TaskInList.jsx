@@ -7,27 +7,17 @@ import StarFilled from '../../../assets/img/star-filled.png';
 
 import Delete from '../../../assets/img/delete.png';
 
-function TaskInList({ task, listId, setSystemList }) {
+function TaskInList({ task, listId, DeleteTask, ToggleImportant }) {
 
     const [TickHovering, setTickHovering] = useState(false);
     const [StarHovering, setStarHovering] = useState(false);
 
-    const DeleteTask = (taskId) => {
-
-        setSystemList(prev =>
-            prev.map(list =>
-                list.id === listId
-                    ? {
-                        ...list,
-                        tasks: list.tasks.filter(task => task.id !== taskId)
-                    }
-                    : list
-            )
-        );
-    };
 
     return (
-            <li className="p-2.5 my-3 bg-white rounded-sm shadow-sm flex gap-2 items-center text-md text-[#555555] border-t border-gray-200">
+        <li className="p-2.5 my-3 bg-white rounded-sm shadow-sm flex gap-2 items-center
+         text-md text-[#555555] border-t border-gray-200">
+
+            <div className='w-full hidden sm:flex items-center '>
 
                 <button className='flex items-center outline-gray-400 hover:outline-1'>
                     <img
@@ -39,28 +29,73 @@ function TaskInList({ task, listId, setSystemList }) {
                     />
                 </button>
 
-                <h3 className='flex-1'>{task.name}</h3>
+                <h3 className='pl-2 flex-1 '>{task.name}</h3>
 
-                <button
+                <button onClick={() => ToggleImportant(task.id, listId)}
                     onMouseEnter={() => setStarHovering(true)}
                     onMouseLeave={() => setStarHovering(false)}
                     className='w-18 mr-2 outline-gray-400 hover:outline-1'
                 >
                     <img
-                        src={StarHovering ? StarFilled : Star}
+                        src={StarHovering || task.important ? StarFilled : Star}
                         alt=""
                         className='size-7 mx-auto'
                     />
                 </button>
 
                 <button
-                    onClick={() => DeleteTask(task.id)}
-                    className='px-2 hover:outline-1'
+                    onClick={() => DeleteTask(task.id, listId)}
+                    className='px-2 pr-3 hover:outline-1'
                 >
                     <img src={Delete} alt="" className='size-7' />
                 </button>
+            </div>
 
-            </li>
+
+
+            <div className='w-full flex flex-col sm:hidden'>
+
+                <div className='ml-4 flex-1 inline-block'>
+                    <h3 className='flex-1'>{task.name}</h3>
+                </div>
+
+                <div className='flex'>
+
+                    <button className='ml-5 flex flex-1 items-center outline-gray-400 hover:outline-1'>
+                        <img
+                            onMouseEnter={() => setTickHovering(true)}
+                            onMouseLeave={() => setTickHovering(false)}
+                            src={TickHovering || task.completed ? CircleTick : Circle}
+                            alt=""
+                            className='size-7'
+                        />
+                    </button>
+
+                    <button onClick={() => ToggleImportant(task.id, listId)}
+                        onMouseEnter={() => setStarHovering(true)}
+                        onMouseLeave={() => setStarHovering(false)}
+                        className='w-18 mr-2 outline-gray-400 hover:outline-1'
+                    >
+                        <img
+                            src={StarHovering || task.important ? StarFilled : Star}
+                            alt=""
+                            className='size-7 mx-auto'
+                        />
+                    </button>
+
+                    <button
+                        onClick={() => DeleteTask(task.id, listId)}
+                        className='px-3 hover:outline-1'
+                    >
+                        <img src={Delete} alt="" className='size-7' />
+                    </button>
+
+                </div>
+
+
+            </div>
+
+        </li>
     );
 };
 

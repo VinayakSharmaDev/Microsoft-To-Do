@@ -2,7 +2,6 @@ function Account({ activeFeature, setActiveFeature }) {
 
     const closeBar = () => {
         setActiveFeature(null);
-        console.log(activeFeature);
     }
 
     return (

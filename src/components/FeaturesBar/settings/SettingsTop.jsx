@@ -1,7 +1,7 @@
 import { useState } from "react";
 import FeatureLayout from "./FeatureLayout";
 
-function SettingsTop({ activeFeature, setActiveFeature }) {
+function SettingsTop({ setActiveFeature }) {
 
     const [toggles, setToggels] = useState({
         //Genetal
@@ -31,7 +31,6 @@ function SettingsTop({ activeFeature, setActiveFeature }) {
 
     const closeBar = () => {
         setActiveFeature(null);
-        console.log(activeFeature);
     }
 
     // const logVinayak = () => {

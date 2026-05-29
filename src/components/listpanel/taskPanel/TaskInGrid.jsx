@@ -7,24 +7,10 @@ import StarFilled from '../../../assets/img/star-filled.png';
 
 import Delete from '../../../assets/img/delete.png';
 
-function Task({ task, listId, setSystemList }) {
+function Task({ task, listId, DeleteTask, ToggleImportant }) {
 
     const [TickHovering, setTickHovering] = useState(false);
     const [StarHovering, setStarHovering] = useState(false);
-
-    const DeleteTask = (taskId) => {
-
-        setSystemList(prev =>
-            prev.map(list =>
-                list.id === listId
-                    ? {
-                        ...list,
-                        tasks: list.tasks.filter(task => task.id !== taskId)
-                    }
-                    : list
-            )
-        );
-    };
 
     return (
         <li className="py-2 flex flex-col  text-md text-[#555555] border-t border-gray-200">
@@ -42,20 +28,20 @@ function Task({ task, listId, setSystemList }) {
 
                 <h3 className='pl-2 sm:pl-0 flex-1'>{task.name}</h3>
 
-                <button
+                <button onClick={() => ToggleImportant(task.id, listId)}
                     onMouseEnter={() => setStarHovering(true)}
                     onMouseLeave={() => setStarHovering(false)}
                     className='w-18 outline-gray-400 hover:outline-1 hidden sm:block'
                 >
                     <img
-                        src={StarHovering ? StarFilled : Star}
+                        src={StarHovering || task.important ? StarFilled : Star}
                         alt=""
                         className='size-7 mx-auto bg'
                     />
                 </button>
 
                 <button
-                    onClick={() => DeleteTask(task.id)}
+                    onClick={() => DeleteTask(task.id, listId)}
                     className='px-2 hover:outline-1 hidden sm:block'
                 >
                     <img src={Delete} alt="" className='size-7' />
@@ -75,13 +61,13 @@ function Task({ task, listId, setSystemList }) {
                     />
                 </button>
 
-                <button
+                <button onClick={() => ToggleImportant(task.id, listId)}
                     onMouseEnter={() => setStarHovering(true)}
                     onMouseLeave={() => setStarHovering(false)}
                     className='w-18 mr-2.5 outline-gray-400 hover:outline-1 sm:hidden'
                 >
                     <img
-                        src={StarHovering ? StarFilled : Star}
+                        src={StarHovering || task.important ? StarFilled : Star}
                         alt=""
                         className='size-7 mx-auto'
                     />

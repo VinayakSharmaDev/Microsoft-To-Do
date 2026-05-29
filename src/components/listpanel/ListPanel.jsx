@@ -38,6 +38,7 @@ function ListPanel(
                     <TaskPanel
                         isCollapsed={isCollapsed}
                         list={list}
+                        allLists={allLists}
                         setSystemList={setSystemList}
                         viewType={viewType} />
                 </div>

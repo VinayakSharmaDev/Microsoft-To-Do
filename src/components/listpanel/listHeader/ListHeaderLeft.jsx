@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import dayjs from 'dayjs';
 
-import Hamber from '../../../assets/img/user-task-icon.png';
+import Hamber from '../../../assets/img/menu.png';
 import Grid from '../../../assets/img/grid-view.png';
 import List from '../../../assets/img/list-view.png';
 import Delete from '../../../assets/img/delete.png';
@@ -52,19 +52,25 @@ function TasksHeaderLeft(
                 <div><button onClick={HandleCollapse}
                     title='Expand Sidebar'
                     className={isCollapsed ? 'block' : 'hidden'}>
-                    <img src={Hamber} alt="" className='size-15 cursor-pointer' /></button></div>
+                    <img src={Hamber} alt="" className='size-12 cursor-pointer' /></button></div>
             </li>
 
             <li className='flex-1' >
-                <div className='mt-3 flex flex-col'>
+                <div className='mt-3 flex items-center'>
 
-                    <h2 className='max-w-40 sm:max-w-70 md:max-w-100 min-w-0 overflow-hidden text-ellipsis
-                             text-[#555555] text-xl italic font-bold'>{list.name}</h2>
-
-                    <span className={`text-[12px]
-                                 ${list.name == 'My Day' ? 'visible' : 'invisible'} `}>
-                        {day.format('dddd, MMMM DD')}
+                    <span className='flex items-center'>
+                        <img src={list.image} alt="" className={`size-12 ${isCollapsed? 'hidden' : 'block'}`} />
                     </span>
+
+                    <div>
+                        <h2 className='max-w-40 sm:max-w-70 md:max-w-100 min-w-0 overflow-hidden text-ellipsis
+                             text-[#555555] text-xl italic font-bold'>{list.name}</h2>
+                        <span className={`text-[12px]
+                                 ${list.name == 'My Day' ? 'block' : 'hidden'} `}>
+                            {day.format('dddd, MMMM DD')}
+                        </span>
+                    </div>
+
                 </div>
             </li>
 

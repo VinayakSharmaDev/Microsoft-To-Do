@@ -1,4 +1,7 @@
 function Userlist({ tasklist, HandleActiveTab, isTabActive }) {
+
+    const count = tasklist.tasks.filter(task => !task.completed).length;
+
     return (
         <div onClick={() => HandleActiveTab(tasklist.name)}
             className={`flex items-center text-sm font-bold text-[#555555] cursor-pointer 
@@ -9,7 +12,7 @@ function Userlist({ tasklist, HandleActiveTab, isTabActive }) {
 
             <img src={tasklist.image} alt="" className='size-10' />
             <h2 className='min-w-0 mx-2 flex-1 overflow-hidden text-ellipsis whitespace-nowrap'>{tasklist.name}</h2>
-            <span className='mr-3'>{tasklist.tasks.length > 0 ? tasklist.tasks.length : ''}</span>
+            <span className='mr-3'>{count === 0 ? '' : count}</span>
         </div>
     );
 };
