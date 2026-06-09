@@ -1,33 +1,33 @@
-import { useState } from "react";
-import FeatureLayout from "./FeatureLayout";
+// import { useState } from "react";
+// import FeatureLayout from "./FeatureLayout";
 
 function SettingsTop({ setActiveFeature }) {
 
-    const [toggles, setToggels] = useState({
-        //Genetal
-        beforeDeleting: false,
-        taskToTop: false,
-        startedToTop: false,
-        sound: false,
-        menu: false,
-        reminder: false,
-        darkMode: false,
+    // const [toggles, setToggels] = useState({
+    //     //Genetal
+    //     beforeDeleting: false,
+    //     taskToTop: false,
+    //     startedToTop: false,
+    //     sound: false,
+    //     menu: false,
+    //     reminder: false,
+    //     darkMode: false,
 
-        //Smart List
-        important: false,
-        planned: false,
-        all: false,
-        completed: false,
-        assigned: false,
-        hideEmptyList: false,
-        dueToday: false,
+    //     //Smart List
+    //     important: false,
+    //     planned: false,
+    //     all: false,
+    //     completed: false,
+    //     assigned: false,
+    //     hideEmptyList: false,
+    //     dueToday: false,
 
-        //Planner
-        planner: false,
+    //     //Planner
+    //     planner: false,
 
-        //notifications
-        email: false,
-    });
+    //     //notifications
+    //     email: false,
+    // });
 
     const closeBar = () => {
         setActiveFeature(null);
@@ -37,9 +37,9 @@ function SettingsTop({ setActiveFeature }) {
     //     console.log('Vinayak')
     // }
 
-    const logSharma = () => {
-        console.log('Sharma');
-    }
+    // const logSharma = () => {
+    //     console.log('Sharma');
+    // }
 
     return (
         <>
@@ -47,9 +47,9 @@ function SettingsTop({ setActiveFeature }) {
                 <h2 className="text-xl text-[#555555] font-bold">Settings</h2>
                 <button onClick={closeBar} className="size-9 flex items-center justify-center text-2xl hover:bg-[#ffffff] ">⤫</button>
             </div>
-            <h3 className="font-bold mt-4 text-lg ">General</h3>
+            {/* <h3 className="font-bold mt-4 text-lg ">General</h3> */}
 
-            <FeatureLayout
+            {/* <FeatureLayout
                 title={'Confirm before deleting'}
                 work={logSharma}
                 toggles={toggles}
@@ -189,7 +189,7 @@ function SettingsTop({ setActiveFeature }) {
                     keyName={'email'}
                 />
                 <p className="text-[12px]">Get notified when a list is shared with you</p>
-            </div>
+            </div> */}
 
         </>
     );

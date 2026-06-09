@@ -7,7 +7,7 @@ import StarFilled from '../../../assets/img/star-filled.png';
 
 import Delete from '../../../assets/img/delete.png';
 
-function TaskInList({ task, listId, DeleteTask, ToggleImportant }) {
+function TaskInList({ task, listId, DeleteTask, ToggleImportant, HandleCompletion }) {
 
     const [TickHovering, setTickHovering] = useState(false);
     const [StarHovering, setStarHovering] = useState(false);
@@ -19,7 +19,8 @@ function TaskInList({ task, listId, DeleteTask, ToggleImportant }) {
 
             <div className='w-full hidden sm:flex items-center '>
 
-                <button className='flex items-center outline-gray-400 hover:outline-1'>
+                <button onClick={() => HandleCompletion(task.id)}
+                    className='flex items-center outline-gray-400 hover:outline-1'>
                     <img
                         onMouseEnter={() => setTickHovering(true)}
                         onMouseLeave={() => setTickHovering(false)}
@@ -52,6 +53,7 @@ function TaskInList({ task, listId, DeleteTask, ToggleImportant }) {
             </div>
 
 
+            {/* Mobile View */}
 
             <div className='w-full flex flex-col sm:hidden'>
 
@@ -61,7 +63,8 @@ function TaskInList({ task, listId, DeleteTask, ToggleImportant }) {
 
                 <div className='flex'>
 
-                    <button className='ml-5 flex flex-1 items-center outline-gray-400 hover:outline-1'>
+                    <button onClick={() => HandleCompletion(task.id)}
+                        className='ml-5 flex flex-1 items-center outline-gray-400 hover:outline-1'>
                         <img
                             onMouseEnter={() => setTickHovering(true)}
                             onMouseLeave={() => setTickHovering(false)}

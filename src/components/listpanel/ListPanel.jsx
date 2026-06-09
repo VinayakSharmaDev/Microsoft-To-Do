@@ -33,12 +33,16 @@ function ListPanel(
                         setViewType={setViewType} />
 
 
-                    <TaskHeader isCollapsed={isCollapsed} />
+                    <TaskHeader isCollapsed={isCollapsed}
+                        list={list}
+                        setUserList={setUserList}
+                        setSystemList={setSystemList} />
 
                     <TaskPanel
                         isCollapsed={isCollapsed}
                         list={list}
                         allLists={allLists}
+                        setUserList={setUserList}
                         setSystemList={setSystemList}
                         viewType={viewType} />
                 </div>

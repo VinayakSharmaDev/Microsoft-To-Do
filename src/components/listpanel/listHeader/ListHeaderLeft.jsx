@@ -46,21 +46,18 @@ function TasksHeaderLeft(
     }, [isTabActive])
 
 
+
     return (
         <ul className='w-full pr-4 flex items-center gap-2 sm:gap-4'>
-            <li>
-                <div><button onClick={HandleCollapse}
-                    title='Expand Sidebar'
-                    className={isCollapsed ? 'block' : 'hidden'}>
-                    <img src={Hamber} alt="" className='size-12 cursor-pointer' /></button></div>
-            </li>
 
             <li className='flex-1' >
                 <div className='mt-3 flex items-center'>
 
-                    <span className='flex items-center'>
-                        <img src={list.image} alt="" className={`size-12 ${isCollapsed? 'hidden' : 'block'}`} />
-                    </span>
+                    <button onClick={HandleCollapse}
+                        className={`flex items-center ${isCollapsed ? 'pointer-events-auto' : 'pointer-events-none'}`}>
+                        <img src={isCollapsed ? Hamber : list.image} alt=""
+                            className={`size-12`} />
+                    </button>
 
                     <div>
                         <h2 className='max-w-40 sm:max-w-70 md:max-w-100 min-w-0 overflow-hidden text-ellipsis

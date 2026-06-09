@@ -7,7 +7,7 @@ import StarFilled from '../../../assets/img/star-filled.png';
 
 import Delete from '../../../assets/img/delete.png';
 
-function Task({ task, listId, DeleteTask, ToggleImportant }) {
+function Task({ task, listId, DeleteTask, ToggleImportant, HandleCompletion }) {
 
     const [TickHovering, setTickHovering] = useState(false);
     const [StarHovering, setStarHovering] = useState(false);
@@ -16,7 +16,8 @@ function Task({ task, listId, DeleteTask, ToggleImportant }) {
         <li className="py-2 flex flex-col  text-md text-[#555555] border-t border-gray-200">
 
             <div className="py-2 flex gap-2 items-center text-md text-[#555555]">
-                <button className='hidden sm:flex items-center outline-gray-400 hover:outline-1'>
+                <button onClick={() => HandleCompletion(task.id)}
+                    className='hidden sm:flex items-center outline-gray-400 hover:outline-1'>
                     <img
                         onMouseEnter={() => setTickHovering(true)}
                         onMouseLeave={() => setTickHovering(false)}
@@ -49,9 +50,12 @@ function Task({ task, listId, DeleteTask, ToggleImportant }) {
             </div>
 
 
+{/*  Mobile view  */}
+
 
             <div className='flex items-center'>
-                <button className='flex-1 sm:hidden items-center outline-gray-400 hover:outline-1'>
+                <button onClick={() => HandleCompletion(task.id)}
+                className='flex-1 sm:hidden items-center outline-gray-400 hover:outline-1'>
                     <img
                         onMouseEnter={() => setTickHovering(true)}
                         onMouseLeave={() => setTickHovering(false)}

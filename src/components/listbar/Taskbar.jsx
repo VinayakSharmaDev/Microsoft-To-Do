@@ -26,7 +26,8 @@ function Taskbar(
         <div className={`w-dvw  pr-2 flex flex-col h-full shadow-lg min-h-0 sm:w-60 md:w-70
         ${isCollapsed ? 'hidden' : 'block'}`}>
 
-            <div><button onClick={HandleCollapse} title='Close sidebar'>
+            <div><button onClick={HandleCollapse}
+             title='Close sidebar' className='mt-3'> 
                 <img src={Hamber} alt="" className='size-12 cursor-pointer' /></button></div>
 
             <div className='flex-1 min-h-0 overflow-auto custom-scrollbar'>

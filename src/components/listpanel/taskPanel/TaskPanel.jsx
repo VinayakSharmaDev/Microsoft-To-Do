@@ -7,7 +7,8 @@ function TaskPanel({
     list,
     setSystemList,
     viewType,
-    allLists }) {
+    allLists,
+    setUserList }) {
 
     const [hideCompleted, setHideComleted] = useState(false);
 
@@ -16,32 +17,82 @@ function TaskPanel({
     }
 
     const DeleteTask = (taskId, listId) => {
+        list.type === 'system' ?
+            setSystemList(prev =>
+                prev.map(list =>
+                    list.id === listId
+                        ? {
+                            ...list,
+                            tasks: list.tasks.filter(task => task.id !== taskId)
 
-        setSystemList(prev =>
-            prev.map(list =>
-                list.id === listId
-                    ? {
-                        ...list,
-                        tasks: list.tasks.filter(task => task.id !== taskId)
-
-                    }
-                    : list
+                        }
+                        : list
+                )
             )
-        );
+            : setUserList(prev =>
+                prev.map(list =>
+                    list.id === listId
+                        ? {
+                            ...list,
+                            tasks: list.tasks.filter(task => task.id !== taskId)
+
+                        }
+                        : list
+                )
+            );
     };
 
 
     const ToggleImportant = (taskId) => {
-        setSystemList(prev =>
-            prev.map(list => ({
-                ...list,
-                tasks: list.tasks.map(task =>
-                    task.id === taskId ?
-                        { ...task, important: !task.important }
-                        : task
+        list.type === 'system' ?
+            setSystemList(prev =>
+                prev.map(list => ({
+                    ...list,
+                    tasks: list.tasks.map(task =>
+                        task.id === taskId ?
+                            { ...task, important: !task.important }
+                            : task
+                    )
+                }))
+            )
+            : setUserList(prev =>
+                prev.map(list =>
+                ({
+                    ...list,
+                    tasks: list.tasks.map(task =>
+                        task.id === taskId ?
+                            { ...task, important: !task.important }
+                            : task
+                    )
+                })
                 )
-            }))
-        );
+            );
+    };
+
+    const HandleCompletion = (taskId) => {
+        list.type === 'system' ?
+            setSystemList(prev =>
+                prev.map(list => ({
+                    ...list,
+                    tasks: list.tasks.map(task =>
+                        task.id === taskId ?
+                            { ...task, completed: !task.completed }
+                            : task
+                    )
+                }))
+            )
+            : setUserList(prev =>
+                prev.map(list =>
+                ({
+                    ...list,
+                    tasks: list.tasks.map(task =>
+                        task.id === taskId ?
+                            { ...task, completed: !task.completed }
+                            : task
+                    )
+                })
+                )
+            );
     };
 
 
@@ -70,18 +121,22 @@ function TaskPanel({
                                         listId={list.id}
                                         DeleteTask={DeleteTask}
                                         ToggleImportant={ToggleImportant}
-                                        setSystemList={setSystemList} />
+                                        setSystemList={setSystemList}
+                                        HandleCompletion={HandleCompletion} />
                                     :
                                     <TaskInList key={task.id}
                                         task={task}
                                         listId={list.id}
                                         DeleteTask={DeleteTask}
                                         ToggleImportant={ToggleImportant}
-                                        setSystemList={setSystemList} />
+                                        setSystemList={setSystemList}
+                                        HandleCompletion={HandleCompletion} />
                             );
                         })}
                 </ul>
 
+
+                {/* completed Task Section */}
 
                 <div className=''>
 
@@ -105,14 +160,16 @@ function TaskPanel({
                                             DeleteTask={DeleteTask}
                                             ToggleImportant={ToggleImportant}
                                             allLists={allLists}
-                                            setSystemList={setSystemList} />
+                                            setSystemList={setSystemList}
+                                            HandleCompletion={HandleCompletion} />
                                         :
                                         <TaskInList key={task.id}
                                             task={task}
                                             listId={list.id}
                                             DeleteTask={DeleteTask}
                                             ToggleImportant={ToggleImportant}
-                                            setSystemList={setSystemList} />
+                                            setSystemList={setSystemList}
+                                            HandleCompletion={HandleCompletion} />
 
                                 );
                             })}

@@ -9,19 +9,7 @@ const list = [
     { name: 'Important', image: Important, type: 'system', id: 'important', tasks: [] },
     { name: 'Planned', image: Planned, type: 'system', id: 'planned', tasks: [] },
     // { name: 'Assigned to me', image: Assigned, type: 'system', id: 'assigned', tasks: [] },
-    {
-        name: 'Tasks', image: Tasks, type: 'system', id: 'tasks', tasks: [
-            { name: 'test 1', id: crypto.randomUUID(), completed: false, important: true },
-            { name: 'test 2', id: crypto.randomUUID(), completed: false, important: false },
-            { name: 'test 3', id: crypto.randomUUID(), completed: false, important: false },
-            { name: 'test 4', id: crypto.randomUUID(), completed: false, important: false },
-            { name: 'test 5', id: crypto.randomUUID(), completed: false, important: false },
-            { name: 'test 6', id: crypto.randomUUID(), completed: false, important: false },
-            { name: 'test 7', id: crypto.randomUUID(), completed: false, important: false },
-            { name: 'test 8', id: crypto.randomUUID(), completed: false, important: false },
-            { name: 'test 9', id: crypto.randomUUID(), completed: true, important: false },
-        ]
-    }
+    { name: 'Tasks', image: Tasks, type: 'system', id: 'tasks', tasks: [] }
 ];
 
 export default list;
